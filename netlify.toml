@@ -1,0 +1,11 @@
+[functions]
+  directory = "netlify/functions"
+
+[build]
+  publish = "public"
+
+[[redirects]]
+  force = true
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/api/:splat"

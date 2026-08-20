@@ -2,6 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
+const API_BASE_URL =
+    process.env.URL ||
+    "http://localhost:3000";
 
 // ======================================================
 // STORE SEARCH FUNCTIONS
@@ -13,31 +16,30 @@ async function searchStore(store, searchTerm) {
 
     if (store === "pnp") {
 
-        url =
-            `http://localhost:3000/api/pnp/search?q=${encodeURIComponent(searchTerm)}`;
+    url =
+        `${API_BASE_URL}/api/pnp/search?q=${encodeURIComponent(searchTerm)}`;
 
-    }
+}
 
-    else if (store === "woolworths") {
+else if (store === "woolworths") {
 
-        url =
-            `http://localhost:3000/api/woolworths/search?q=${encodeURIComponent(searchTerm)}`;
+    url =
+        `${API_BASE_URL}/api/woolworths/search?q=${encodeURIComponent(searchTerm)}`;
 
-    }
+}
 
-    else if (store === "checkers") {
+else if (store === "checkers") {
 
-        url =
-            `http://localhost:3000/api/checkers/search?q=${encodeURIComponent(searchTerm)}`;
+    url =
+        `${API_BASE_URL}/api/checkers/search?q=${encodeURIComponent(searchTerm)}`;
 
-    }
+}
 
-    else {
+else {
 
-        return [];
+    return [];
 
-    }
-
+}
 
     try {
 
