@@ -1467,6 +1467,10 @@ router.get(
         // ==================================================
         // RESPONSE
         // ==================================================
+res.set(
+    "Netlify-CDN-Cache-Control",
+    "public, durable, s-maxage=1800, stale-while-revalidate=300"
+);
 
         return res.json({
 
