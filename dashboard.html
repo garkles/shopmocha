@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - Basketly</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+
+            <a href="index.html">
+                Basketly
+            </a>
+
+        </div>
+
+
+        <div class="nav-links">
+            
+            <a
+                href="dashboard.html"
+                id="dashboard_nav_link"
+            >
+                Dashboard
+            </a>
+            <a href="index.html">
+                Shopping List
+            </a>
+
+            <a href="catalogue.html" id="catalogue_nav_link">
+                Stores
+            </a>
+            
+
+
+            <a
+                href="login.html"
+                id="login_nav_link"
+            >
+                Sign In
+            </a>
+
+
+            <a
+                href="register.html"
+                id="register_nav_link"
+            >
+                Create Account
+            </a>
+
+
+            <span
+                id="signed_in_nav"
+                style="display: none;"
+            >
+                Signed in as
+                <strong id="nav_user_email"></strong>
+            </span>
+
+
+            <button
+                id="logout_button"
+                type="button"
+                style="display: none;"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- HEADER -->
+
+        <section class="dashboard-header">
+
+            <div class="dashboard-heading">
+
+                <div class="dashboard-brand">
+                    Basketly
+                </div>
+
+
+                <h1>
+                    Your Dashboard
+                </h1>
+
+
+                <p>
+                    Welcome back,
+                    <strong id="dashboard_email">
+                        ...
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="dashboard-button"
+            >
+                + New Shopping List
+            </a>
+
+        </section>
+
+
+
+        <!-- CONTENT -->
+
+        <section class="dashboard-content">
+
+
+            <!-- SAVED LISTS -->
+
+            <div class="dashboard-card saved-lists-card">
+
+
+                <div class="dashboard-icon">
+                    💾
+                </div>
+
+
+                <div class="saved-list-heading">
+
+                    <h2>
+                        My Saved Lists
+                    </h2>
+
+                    <p>
+                        Click a list to open it.
+                    </p>
+
+                </div>
+
+
+                <div id="saved_lists">
+
+                    <p class="loading-lists">
+                        Loading your lists...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/navbar.js"
+    ></script>
+
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+
+</body>
+
+</html>

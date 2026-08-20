@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Basketly - Stores</title>
+
+    <link
+        rel="stylesheet"
+        href="css/catalogue.css"
+    >
+
+</head>
+
+
+<body class="catalogue-page-body">
+
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+
+            <a href="index.html">
+                Basketly
+            </a>
+
+        </div>
+
+
+        <div class="nav-links">
+            
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="index.html">
+                Shopping List
+            </a>
+
+
+            <a
+                href="catalogue.html"
+                class="active-nav"
+            >
+                Stores
+            </a>
+
+
+
+
+            <a
+                href="login.html"
+                id="login_nav_link"
+            >
+                Sign In
+            </a>
+
+
+            <a
+                href="register.html"
+                id="register_nav_link"
+            >
+                Create Account
+            </a>
+
+
+            <span
+                id="signed_in_nav"
+                style="display: none;"
+            >
+
+                Signed in as
+
+                <strong id="nav_user_email"></strong>
+
+            </span>
+
+
+            <button
+                id="logout_button"
+                type="button"
+                style="display: none;"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==========================================
+         STORES MAIN
+    =========================================== -->
+
+    <main class="catalogue-page">
+
+        <section class="catalogue-container">
+
+
+            <!-- ======================================
+                 HERO
+            ======================================= -->
+
+            <div class="catalogue-hero">
+
+                <div class="catalogue-hero-icon">
+                    🛒
+                </div>
+
+
+                <h1>
+                    Stores
+                </h1>
+
+
+                <p>
+                    Search products across multiple stores,
+                    compare prices and find the best deals.
+                </p>
+
+            </div>
+
+
+            <!-- ======================================
+                 SEARCH
+            ======================================= -->
+
+            <div class="catalogue-search-card">
+
+                <form
+                    id="search_form"
+                    class="catalogue-search-form"
+                >
+
+                    <div class="search-input-wrapper">
+
+                        <span class="search-icon">
+                            🔎
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="search_input"
+                            placeholder="Search for milk, bread, chicken..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="search_button"
+                    >
+                        Search
+                    </button>
+
+                </form>
+
+
+                <!-- ======================================
+                     SEARCH STATUS
+                ======================================= -->
+
+                <div
+                    id="search_status"
+                    class="search-status"
+                ></div>
+
+
+                <!-- ======================================
+                     SEARCH FILTERS
+                ======================================= -->
+
+                <div
+                    id="catalogue_filters"
+                    class="catalogue-filters"
+                >
+
+                    <div class="catalogue-filter-header">
+
+                        <div>
+
+                            <span class="catalogue-filter-label">
+                                FILTERS & SORTING
+                            </span>
+
+                            <h3>
+                                Find the best product
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="catalogue-filter-grid">
+
+
+                        <!-- ==================================
+                             STORE FILTER
+                        =================================== -->
+
+                        <div class="catalogue-filter-field">
+
+                            <label
+                                for="catalogue_store_filter"
+                            >
+                                Store
+                            </label>
+
+
+                            <select
+                                id="catalogue_store_filter"
+                            >
+
+                                <option value="all">
+                                    All Stores
+                                </option>
+
+
+                                <option value="Pick n Pay">
+                                    Pick n Pay
+                                </option>
+
+
+                                <option value="Woolworths">
+                                    Woolworths
+                                </option>
+
+
+                                <option value="Checkers">
+                                    Checkers
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                       
+
+
+                        <!-- ==================================
+                             SORT
+                        =================================== -->
+
+                        <div class="catalogue-filter-field">
+
+                            <label
+                                for="catalogue_sort"
+                            >
+                                Sort By
+                            </label>
+
+
+                            <select
+                                id="catalogue_sort"
+                            >
+
+                                <option value="relevance">
+                                    Relevance
+                                </option>
+
+
+                                <option value="cheapest">
+                                    Price: Low to High
+                                </option>
+
+
+                                <option value="expensive">
+                                    Price: High to Low
+                                </option>
+
+
+                                <option value="az">
+                                    Alphabetical A–Z
+                                </option>
+
+
+                                <option value="za">
+                                    Alphabetical Z–A
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- ==================================
+                             CLEAR FILTERS
+                        =================================== -->
+
+                        <div class="catalogue-filter-field catalogue-filter-clear">
+
+                            <label>
+                                &nbsp;
+                            </label>
+
+
+                            <button
+                                type="button"
+                                id="catalogue_clear_filters"
+                            >
+                                Clear Filters
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================
+                 LOADING
+            ======================================= -->
+
+            <div
+                id="loading"
+                class="catalogue-loading"
+                style="display: none;"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Searching stores...
+                </p>
+
+            </div>
+
+
+            <!-- ======================================
+                 EMPTY STATE
+            ======================================= -->
+
+            <div
+                id="empty_state"
+                class="empty-state"
+                style="display: none;"
+            >
+
+                <div class="empty-icon">
+                    🔎
+                </div>
+
+
+                <h2>
+                    Search for a product
+                </h2>
+
+
+                <p>
+                    Enter a product above to compare
+                    prices across stores.
+                </p>
+
+            </div>
+
+
+            <!-- ======================================
+                 OLD BEST DEAL SECTION
+                 
+                 Kept in HTML for compatibility.
+                 catalogue.js creates/controls its
+                 own dynamic Best Deal section.
+            ======================================= -->
+
+            <section
+                id="best_deal_section"
+                class="best-deal-section"
+                style="display: none;"
+            >
+
+                <div class="best-deal-header">
+
+                    <div class="best-deal-icon">
+                        🏆
+                    </div>
+
+
+                    <div>
+
+                        <span class="best-deal-label">
+                            BEST DEAL
+                        </span>
+
+
+                        <h2 id="best_deal_title">
+                            Best price found
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="best_deal_content"
+                    class="best-deal-content"
+                ></div>
+
+            </section>
+
+
+            <!-- ======================================
+                 OLD CHECKERS RESULTS
+                 
+                 Hidden because catalogue.js now
+                 renders ALL stores into the single
+                 combined products grid.
+            ======================================= -->
+
+            <section
+                id="checkers_results_section"
+                class="store-results-section"
+                style="display: none;"
+            >
+
+                <div class="store-results-header">
+
+                    <div class="store-results-title">
+
+                        <div class="store-icon">
+                            🛒
+                        </div>
+
+
+                        <div>
+
+                            <span class="store-label">
+                                STORE
+                            </span>
+
+
+                            <h2>
+                                Checkers
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        id="checkers_result_count"
+                        class="store-result-count"
+                    ></span>
+
+                </div>
+
+
+                <div
+                    id="checkers_products_grid"
+                    class="products-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- ======================================
+                 OLD WOOLWORTHS RESULTS
+                 
+                 Hidden because catalogue.js now
+                 renders ALL stores into the single
+                 combined products grid.
+            ======================================= -->
+
+            <section
+                id="woolworths_results_section"
+                class="store-results-section"
+                style="display: none;"
+            >
+
+                <div class="store-results-header">
+
+                    <div class="store-results-title">
+
+                        <div class="store-icon">
+                            🛍️
+                        </div>
+
+
+                        <div>
+
+                            <span class="store-label">
+                                STORE
+                            </span>
+
+
+                            <h2>
+                                Woolworths
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        id="woolworths_result_count"
+                        class="store-result-count"
+                    ></span>
+
+                </div>
+
+
+                <div
+                    id="woolworths_products_grid"
+                    class="products-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- ======================================
+                 OLD PICK N PAY RESULTS
+                 
+                 Hidden because catalogue.js now
+                 renders ALL stores into the single
+                 combined products grid.
+            ======================================= -->
+
+            <!-- <section
+                id="pnp_results_section"
+                class="store-results-section"
+                style="display: none;"
+            >
+
+                <div
+                    id="pnp_products_grid"
+                    class="products-grid"
+                ></div>
+
+            </section> -->
+
+
+            <!-- ======================================
+                 OLD OTHER STORES
+                 
+                 Kept hidden for compatibility.
+            ======================================= -->
+
+            <section
+                id="other_stores_section"
+                class="store-results-section"
+                style="display: none;"
+            >
+
+                <div class="store-results-header">
+
+                    <div class="store-results-title">
+
+                        <div class="store-icon">
+                            🏪
+                        </div>
+
+
+                        <div>
+
+                            <span class="store-label">
+                                MORE STORES
+                            </span>
+
+
+                            <h2>
+                                Other Stores
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="other_stores_products"
+                    class="products-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- ======================================
+                 COMBINED RESULTS
+                 
+                 catalogue.js uses this as the ONE
+                 product grid for all three stores.
+                 
+                 Products are:
+                 
+                 PnP
+                 Checkers
+                 Woolworths
+                 
+                 -> filtered
+                 -> sorted
+                 -> rendered here
+            ======================================= -->
+
+            <section
+                id="combined_results_section"
+                class="store-results-section"
+            >
+
+                <div class="store-results-header">
+
+                    <div class="store-results-title">
+
+                        <div>
+
+                            <!-- <h2>
+                                Products
+                            </h2> -->
+
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        id="combined_result_count"
+                        class="store-result-count"
+                    ></span>
+
+                </div>
+
+
+                <div
+                    id="products_grid"
+                    class="products-grid"
+                ></div>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script
+        type="module"
+        src="js/catalogue.js"
+    ></script>
+
+
+    <script
+        type="module"
+        src="js/navbar.js"
+    ></script>
+
+
+</body>
+
+</html>

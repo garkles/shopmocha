@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account - Basketly</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+
+            <a href="index.html">
+                Basketly
+            </a>
+
+        </div>
+
+
+        <div class="nav-links">
+            <a
+                href="dashboard.html"
+                id="dashboard_nav_link"
+            >
+                Dashboard
+            </a>
+
+            <a href="index.html">
+                Shopping List
+            </a>
+            
+            <a href="catalogue.html" id="catalogue_nav_link">
+                Stores
+            </a>
+
+
+
+            <!-- Logged out -->
+
+            <a
+                href="login.html"
+                id="login_nav_link"
+            >
+                Sign In
+            </a>
+
+
+            <a
+                href="register.html"
+                id="register_nav_link"
+            >
+                Create Account
+            </a>
+
+
+            <!-- Logged in -->
+
+            <span
+                id="signed_in_nav"
+                style="display: none;"
+            >
+                Signed in as
+                <strong id="nav_user_email"></strong>
+            </span>
+
+
+            <button
+                id="logout_button"
+                type="button"
+                style="display: none;"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         REGISTER PAGE
+    ====================================================== -->
+
+    <main class="auth-page">
+
+
+        <div class="auth-container">
+
+
+            <!-- Icon -->
+
+            <div class="auth-logo">
+                🛒
+            </div>
+
+
+            <!-- Heading -->
+
+            <h1>
+                Create Account
+            </h1>
+
+
+            <p class="auth-subtitle">
+                Save your shopping lists anywhere.
+            </p>
+
+
+
+            <!-- Register Form -->
+
+            <form
+                id="register_form"
+                class="auth-form"
+            >
+
+
+                <div class="form-group">
+
+                    <label for="register_email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="register_email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="register_password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="register_password"
+                        placeholder="At least 6 characters"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="register_password_confirm">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="register_password_confirm"
+                        placeholder="Enter your password again"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="auth-submit-button"
+                >
+                    Create Account
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Error -->
+
+            <p
+                id="register_error"
+                class="auth-error"
+            ></p>
+
+
+
+            <!-- Login -->
+
+            <p class="auth-switch">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign in
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/auth.js"
+    ></script>
+
+
+    <script
+        type="module"
+        src="js/navbar.js"
+    ></script>
+
+
+</body>
+
+</html>
